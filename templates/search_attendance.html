@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/search_attendance/search.css' %}">
+{% endblock style %}
+
+<title> {% block title %} Search Attendance {% endblock title %} </title>
+
+{% block alarts %}
+         <div class="mt-2 my-alert">
+            {% if messages %}
+            {% for msg in messages %}
+                <p class="alert alert-danger">{{ msg }} </p>
+            {% endfor %}
+        {% endif %}
+        </div>
+ {% endblock alarts %}
+
+{% block content %}
+
+<h2 class="mt-3 text-center">Search Attendance Here</h2>
+<hr>
+
+<!-- form starts here -->
+<form method="POST" action="">
+  {% csrf_token %}
+  <div class="form-design">
+<!-- Name -->
+
+<label for="name"></label>
+<input type="text" id="name" name="name" placeholder="Enter Name">
+
+<!-- Department -->
+    <label for="Department"></label>
+    <input type="text" id="Department" name="Department" placeholder="Enter Department">
+
+
+<!-- From Date -->
+    <label for="form_date"></label>
+    <input type="date" id="form" name="from_date" placeholder="From Date">
+
+<!-- To Date -->
+
+    <!-- <label for="to_date"></label>
+    <input type="date" id="to_date" name="to_date" placeholder="To Date"> -->
+
+
+<!-- Search Button -->
+
+    <button type="submit" class="btn btn-info my-btn">Search</button>
+  </div>
+  <hr>
+</form>
+<!-- Search form Ends here -->
+
+<hr>
+<div>
+
+  <table class="table table-bordered table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Sl No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Roll no.</th>
+        <th scope="col">Department</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for i in tp %}
+      <tr>
+        {# <th scope="row"></th>#}
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.student_name }}</td>
+        <td>{{ i.student_roll }}</td>
+        <td>{{ i.student_department }}</td>
+        <td>{{ i.attendance_date }}</td>
+
+      </tr>
+      {% endfor %}
+      <tr>
+        <th colspan="5" class=" text-warning text-center" scope="row">Total attendance : {{ total_pr }}</th>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+<script>
+  document.getElementById('to_date').value = new Date();
+</script>
+{% endblock content %}

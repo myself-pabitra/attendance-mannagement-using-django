@@ -1,0 +1,23 @@
+.form-design{
+  display: inline;
+  margin-left: 21rem;
+}
+.my-btn{
+  margin-left: 1rem;
+  width: 10rem;
+  height: 3.3rem;
+}
+.form-design input{
+  width: 12rem;
+  height: 3rem;
+  margin-right: 0.5rem;
+}
+.form-design ::placeholder{
+  text-align: center;
+}
+.my-alert{
+  width: 50rem;
+  margin-left: 22.7rem;
+  text-align: center;
+  
+}

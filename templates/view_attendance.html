@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+  <title> {% block title %} View_Attendance {% endblock title %} </title>l>
+ {% block style %}
+     <link rel="stylesheet" href="{% static 'css/view_attendance/view_attendance.css' %}">
+{% endblock style %}
+
+{% block content %}
+
+   <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Roll No.</th>
+      <th scope="col">Department</th>
+        <th scope="col">Group</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in stud %}
+    <tr>
+{#      <th scope="row"></th>#}
+{#        <td>{{ i.id }}</td>#}
+        <td>{{ i.Stu_name }}</td>
+        <td>{{ i.stu_roll }}</td>
+        <td>{{ i.Stu_dept }}</td>
+        <td>{{ i.Stu_group }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

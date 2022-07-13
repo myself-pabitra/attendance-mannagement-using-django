@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  <title> {% block title %} Take_Attendance {% endblock title %} </title>
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/take_attendance/take_attendance.css' %}">
+{% endblock style %}
+
+{% block form  %}
+{#    <form action="" method="POST">#}
+{#    {% csrf_token %}#}
+{#     <table>#}
+{#    {{ form }}#}
+{#    </table>#}
+{#    <input type="submit" value="submit">#}
+{#    </form>#}
+    <style>
+
+    </style>
+    <div class="container mt-5">
+  <h2 class="font-weight-bolder text-center" >Attendance Form</h2>
+
+{%for msg in messages%}
+    <div class="alert alert-danger" role="alert">
+      {{msg}}
+    </div>
+{%endfor%}
+
+  <form action="#" method="post">
+      {%csrf_token%}
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Name" required name="name">
+    </div>
+    <div class="form-group">
+      <label for="roll">Roll No:</label>
+      <input type="number" class="form-control" id="roll" placeholder="Enter Roll No." required name="roll">
+    </div>
+     <div class="form-group">
+      <label for="dept">Department:</label>
+      <input type="text" class="form-control" id="dept" placeholder="Enter Your Department" required name="dept">
+    </div>
+       <div class="form-group">
+      <label for="grp">Group: </label>
+      <input type="text" class="form-control" id="grp" placeholder="Enter Your Group"required name="grp">
+    </div>
+    <div class="text-center">
+         <button type="submit" class="btn btn-warning  mt-5">Submit</button>
+    </div>
+
+  </form>
+</div>
+
+{% endblock form %}

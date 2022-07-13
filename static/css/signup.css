@@ -1,0 +1,16 @@
+body{
+   background-color: rgb(75,74,74);
+    color: antiquewhite;
+}
+.container{
+    width: 30rem;
+}
+.my-btn{
+    width: 11rem;
+    margin: 8rem;
+    height: 3rem;
+}
+.my-alert{
+    width: 50rem;
+    margin-left: 22.7rem;
+}
